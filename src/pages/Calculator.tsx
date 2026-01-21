@@ -55,6 +55,7 @@ const translations = {
     grabBonus: 'Профит от Grab доставки',
     nhungChannelBonus: 'Реклама в канале Ньунг',
     priceIncrease: 'Повышение цен меню',
+    volumeDrop: 'Падение объёма от цен',
     ingredientOptimization: 'Сокращение расходов на сырьё',
     ingredientPercent: 'Текущий % сырья от выручки',
     monthlyGrowth: 'Рост выручки в месяц',
@@ -154,6 +155,7 @@ const translations = {
     grabBonus: 'Lợi nhuận từ Grab',
     nhungChannelBonus: 'QC kênh Nhung',
     priceIncrease: 'Tăng giá menu',
+    volumeDrop: 'Giảm lượng bán do tăng giá',
     ingredientOptimization: 'Giảm chi phí nguyên liệu',
     ingredientPercent: '% nguyên liệu/doanh thu',
     monthlyGrowth: 'Tăng trưởng/tháng',
@@ -251,6 +253,7 @@ const DEFAULTS = {
   grabBonus: 0, // % прибавки от Grab
   nhungChannelBonus: 0, // % прибавки от канала Ньунг
   priceIncrease: 30,
+  volumeDrop: 5,
   ingredientOptimization: 20,
   ingredientPercent: 50,
   monthlyGrowth: 15,
@@ -410,6 +413,7 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
   const [grabBonus, setGrabBonus] = useState(() => getSavedValue('grabBonus', DEFAULTS.grabBonus))
   const [nhungChannelBonus, setNhungChannelBonus] = useState(() => getSavedValue('nhungChannelBonus', DEFAULTS.nhungChannelBonus))
   const [priceIncrease, setPriceIncrease] = useState(() => getSavedValue('priceIncrease', DEFAULTS.priceIncrease))
+  const [volumeDrop, setVolumeDrop] = useState(() => getSavedValue('volumeDrop', DEFAULTS.volumeDrop))
   const [ingredientOptimization, setIngredientOptimization] = useState(() => getSavedValue('ingredientOptimization', DEFAULTS.ingredientOptimization))
   const [ingredientPercent, setIngredientPercent] = useState(() => getSavedValue('ingredientPercent', DEFAULTS.ingredientPercent))
   const [monthlyGrowth, setMonthlyGrowth] = useState(() => getSavedValue('monthlyGrowth', DEFAULTS.monthlyGrowth))
@@ -448,7 +452,7 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
       accountantSalary, armenSalary, investorsSalary,
       rent, marketing, utilities, claudeAi, contingency,
       vat, incomeTax,
-      dailyRevenue, grabBonus, nhungChannelBonus, priceIncrease, ingredientOptimization, ingredientPercent, monthlyGrowth, investorProfitShare,
+      dailyRevenue, grabBonus, nhungChannelBonus, priceIncrease, volumeDrop, ingredientOptimization, ingredientPercent, monthlyGrowth, investorProfitShare,
     }
     localStorage.setItem('caucasus-calculator', JSON.stringify(values))
     setSaveStatus('saved')
@@ -476,6 +480,7 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
     setGrabBonus(DEFAULTS.grabBonus)
     setNhungChannelBonus(DEFAULTS.nhungChannelBonus)
     setPriceIncrease(DEFAULTS.priceIncrease)
+    setVolumeDrop(DEFAULTS.volumeDrop)
     setIngredientOptimization(DEFAULTS.ingredientOptimization)
     setIngredientPercent(DEFAULTS.ingredientPercent)
     setMonthlyGrowth(DEFAULTS.monthlyGrowth)
@@ -500,7 +505,7 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
     const hoursMultiplier = hoursPerDay / 10
     const actualDailyRevenue = dailyRevenue * hoursMultiplier
     const monthlyRevenue = actualDailyRevenue * workDaysPerWeek * weeksPerMonth
-    const adjustedRevenue = monthlyRevenue * (1 + priceIncrease / 100) * (1 + grabBonus / 100) * (1 + nhungChannelBonus / 100)
+    const adjustedRevenue = monthlyRevenue * (1 + priceIncrease / 100) * (1 - volumeDrop / 100) * (1 + grabBonus / 100) * (1 + nhungChannelBonus / 100)
 
     // Ingredient costs with optimization
     const ingredientCost = adjustedRevenue * (ingredientPercent / 100) * (1 - ingredientOptimization / 100)
@@ -585,7 +590,7 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
     accountantSalary, armenSalary, investorsSalary,
     rent, marketing, utilities, claudeAi, contingency,
     vat, incomeTax,
-    dailyRevenue, grabBonus, nhungChannelBonus, priceIncrease, ingredientOptimization, ingredientPercent, monthlyGrowth, investorProfitShare,
+    dailyRevenue, grabBonus, nhungChannelBonus, priceIncrease, volumeDrop, ingredientOptimization, ingredientPercent, monthlyGrowth, investorProfitShare,
   ])
 
   // Find payback month
@@ -862,6 +867,14 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
                     min={0}
                     max={50}
                     unit="%"
+                  />
+                  <SliderInput
+                    label={t.volumeDrop}
+                    value={volumeDrop}
+                    onChange={setVolumeDrop}
+                    min={0}
+                    max={20}
+                    formatValue={(v) => `-${v}%`}
                   />
                   <SliderInput
                     label={t.ingredientOptimization}
