@@ -37,6 +37,7 @@ const translations = {
     // Simulation
     simulationTitle: 'Симуляция окупаемости',
     monthlyProfitLabel: 'Ожидаемая чистая прибыль в месяц',
+    toPayback: 'Нужно окупить (Влад+Ньунг − Армен)',
     monthsToPayback: 'Месяцев до окупаемости',
     duringPayback: 'За период окупаемости',
     afterPayback: 'После окупаемости',
@@ -184,6 +185,7 @@ const translations = {
     // Simulation
     simulationTitle: 'Mô phỏng hoàn vốn',
     monthlyProfitLabel: 'Lợi nhuận ròng dự kiến mỗi tháng',
+    toPayback: 'Cần hoàn vốn (Vlad+Nhung − Armen)',
     monthsToPayback: 'Số tháng để hoàn vốn',
     duringPayback: 'Trong thời gian hoàn vốn',
     afterPayback: 'Sau khi hoàn vốn',
@@ -797,15 +799,19 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
                   <div className="mt-4 space-y-3">
                     {/* Months to payback */}
                     {(() => {
-                      const totalInvestment = investment + armenInvestment
+                      const investmentToPayback = investment - armenInvestment // Разница вложений
                       const monthlyToInvestors = monthlyProfit * investorPrePaybackPercent / 100
-                      const monthsToPayback = monthlyToInvestors > 0 ? Math.ceil(totalInvestment / monthlyToInvestors) : 0
+                      const monthsToPayback = monthlyToInvestors > 0 && investmentToPayback > 0 ? Math.ceil(investmentToPayback / monthlyToInvestors) : 0
                       const armenEarningsDuringPayback = monthsToPayback * monthlyProfit * armenPrePaybackPercent / 100
                       const armenMonthlyAfterPayback = monthlyProfit * profitPercent / 100
 
                       return (
                         <>
-                          <div className="p-3 rounded-lg bg-blue-500/10 border border-blue-500/30">
+                          <div className="p-3 rounded-lg bg-blue-500/10 border border-blue-500/30 space-y-2">
+                            <div className="flex justify-between items-center text-xs text-gray-500">
+                              <span>{t.toPayback}:</span>
+                              <span>{investmentToPayback.toLocaleString('ru-RU')} ₫</span>
+                            </div>
                             <div className="flex justify-between items-center">
                               <span className="text-sm text-gray-400">{t.monthsToPayback}:</span>
                               <span className="text-lg font-bold text-blue-400">
