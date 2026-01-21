@@ -1241,3 +1241,4 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
     </>
   )
 }
+
