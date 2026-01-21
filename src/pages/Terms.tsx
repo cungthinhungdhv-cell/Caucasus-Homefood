@@ -12,6 +12,7 @@ const translations = {
   ru: {
     pageTitle: 'Условия сотрудничества',
     pageSubtitle: 'Чек-лист для переговоров с Арменом',
+    disclaimer: 'Армен, мы с тобой друзья, но когда речь идёт о бизнесе, к этому нужно подходить с холодной головой и без мыслей о дружбе, поэтому не смешивая бизнес и дружбу, мы прописали ключевые пункты нашего сотрудничества. Ознакомься с ними, пожалуйста.',
 
     // Section 1: Ownership
     ownershipTitle: 'Владение компанией',
@@ -31,7 +32,19 @@ const translations = {
     investorShareLabel: 'Влад+Ньунг',
     prePaybackTooltip: 'До момента окупаемости вложений Армен получает меньшую долю, остальное идёт на ускоренную окупаемость инвесторов.',
     totalInvestment: 'Общие вложения',
+    salaryNote: 'Помимо процентов от прибыли, каждый партнёр получает зарплату 15.000.000 ₫ в месяц.',
     newInvestmentsNote: 'Данные условия повторяются при новых вложениях в бизнес.',
+    // Simulation
+    simulationTitle: 'Симуляция окупаемости',
+    monthlyProfitLabel: 'Ожидаемая чистая прибыль в месяц',
+    monthsToPayback: 'Месяцев до окупаемости',
+    duringPayback: 'За период окупаемости',
+    afterPayback: 'После окупаемости',
+    perMonth: 'в месяц',
+    months: 'мес.',
+    armenEarns: 'Армен получит',
+    armenWillEarn: 'Армен будет получать',
+    total: 'всего',
 
     // Section 4: Death conditions
     deathTitle: 'В случае смерти инвесторов (Армен или Влад+Ньунг)',
@@ -53,17 +66,26 @@ const translations = {
       '• Если зарплаты не хватает — из личного кармана',
     ],
 
-    // Section 6: Exit from business
+    // Section 6: Minimum partnership term
+    minTermTitle: 'Минимальный срок партнёрства',
+    minTermConditions: [
+      'Минимальный срок партнёрства — 3 года с момента начала работы бизнеса.',
+      'При выходе раньше 3 лет:',
+      '• Доля продаётся со скидкой 30% (как 35% вместо 50%)',
+      'После 3 лет — стандартные условия выхода (пункт 7).',
+    ],
+
+    // Section 7: Exit from business
     exitTitle: 'Выход из бизнеса',
     exitConditions: [
       'Сторона, которая выходит из бизнеса, обязана уведомить другую сторону за 2 месяца до выхода.',
       'Вторая сторона имеет преимущественное право выкупа доли.',
-      'Оценка стоимости доли — согласно пункту 9 (Оценка стоимости бизнеса).',
+      'Оценка стоимости доли — согласно пункту 10 (Оценка стоимости бизнеса).',
       'При уведомлении менее чем за 2 месяца:',
       '• Другая сторона получает право выкупа доли по цене как 38% от доли владения (вместо 50%).',
     ],
 
-    // Section 7: Responsibilities
+    // Section 8: Responsibilities
     responsibilitiesTitle: 'Распределение обязанностей',
     armenResponsibilities: [
       'Обучение персонала',
@@ -85,17 +107,17 @@ const translations = {
       'Оформление мед. страховки сотрудникам',
     ],
 
-    // Section 8: Non-compete
+    // Section 9: Non-compete
     nonCompeteTitle: 'Запрет на индивидуальные рестораны',
     nonCompeteConditions: [
-      'В течение 5 лет каждому из инвесторов запрещается открывать новый индивидуальный ресторан, чтобы сосредоточиться на развитии текущего бизнеса.',
+      'В течение 3 лет каждому из инвесторов запрещается открывать новый индивидуальный ресторан, чтобы сосредоточиться на развитии текущего бизнеса.',
       'Исключения:',
       '• Ресторан не кавказской кухни',
       '• Совместный ресторан тех же инвесторов (в том числе если будет новый добавочный инвестор)',
       '• Пункт можно нарушить за 250.000.000 ₫ в пользу другого инвестора',
     ],
 
-    // Section 9: Business valuation
+    // Section 10: Business valuation
     valuationTitle: 'Оценка стоимости бизнеса',
     valuationFormula: 'Стоимость бизнеса = (Годовая чистая прибыль × 2) + Неокупившиеся вложения',
     valuationConditions: [
@@ -104,7 +126,7 @@ const translations = {
       'Стоимость доли = Стоимость бизнеса × % владения.',
     ],
 
-    // Section 10: Business liquidation
+    // Section 11: Business liquidation
     liquidationTitle: 'Закрытие бизнеса и продажа активов',
     liquidationConditions: [
       'Закрытие бизнеса требует согласия всех инвесторов.',
@@ -114,6 +136,15 @@ const translations = {
       '• Остаток — делится пропорционально долям владения (50/50)',
       'Если средств не хватает — неокупившиеся инвестиции сгорают.',
       'Срок ликвидации — до 3 месяцев с момента решения.',
+    ],
+
+    // Section 12: Force majeure
+    forceMajeureTitle: 'Форс-мажор',
+    forceMajeureConditions: [
+      'Форс-мажор: война, стихийные бедствия, пандемия, действия властей, закрытие границ.',
+      'При форс-мажоре обязательства сторон приостанавливаются.',
+      'Если бизнес невозможно продолжить более 6 месяцев — ликвидация по пункту 11.',
+      'Стороны не несут ответственности за убытки от форс-мажора.',
     ],
 
     // Common
@@ -128,6 +159,7 @@ const translations = {
   vi: {
     pageTitle: 'Điều khoản hợp tác',
     pageSubtitle: 'Checklist đàm phán với Armen',
+    disclaimer: 'Armen, chúng ta là bạn bè, nhưng khi nói đến kinh doanh, cần phải tiếp cận với đầu óc tỉnh táo và không nghĩ đến tình bạn, vì vậy không trộn lẫn kinh doanh và tình bạn, chúng tôi đã ghi lại các điểm chính của sự hợp tác. Xin hãy đọc kỹ.',
 
     // Section 1: Ownership
     ownershipTitle: 'Quyền sở hữu công ty',
@@ -147,7 +179,19 @@ const translations = {
     investorShareLabel: 'Vlad+Nhung',
     prePaybackTooltip: 'Trước khi hoàn vốn, Armen nhận phần nhỏ hơn, phần còn lại để hoàn vốn nhanh hơn cho nhà đầu tư.',
     totalInvestment: 'Tổng đầu tư',
+    salaryNote: 'Ngoài phần trăm lợi nhuận, mỗi đối tác nhận lương 15.000.000 ₫ mỗi tháng.',
     newInvestmentsNote: 'Các điều khoản này áp dụng cho các khoản đầu tư mới.',
+    // Simulation
+    simulationTitle: 'Mô phỏng hoàn vốn',
+    monthlyProfitLabel: 'Lợi nhuận ròng dự kiến mỗi tháng',
+    monthsToPayback: 'Số tháng để hoàn vốn',
+    duringPayback: 'Trong thời gian hoàn vốn',
+    afterPayback: 'Sau khi hoàn vốn',
+    perMonth: 'mỗi tháng',
+    months: 'tháng',
+    armenEarns: 'Armen nhận được',
+    armenWillEarn: 'Armen sẽ nhận',
+    total: 'tổng cộng',
 
     // Section 4: Death conditions
     deathTitle: 'Trường hợp nhà đầu tư qua đời (Armen hoặc Vlad+Nhung)',
@@ -169,17 +213,26 @@ const translations = {
       '• Nếu lương không đủ — từ tiền cá nhân',
     ],
 
-    // Section 6: Exit from business
+    // Section 6: Minimum partnership term
+    minTermTitle: 'Thời hạn hợp tác tối thiểu',
+    minTermConditions: [
+      'Thời hạn hợp tác tối thiểu — 3 năm từ khi doanh nghiệp bắt đầu hoạt động.',
+      'Nếu rút lui trước 3 năm:',
+      '• Cổ phần được bán với giảm giá 30% (như 35% thay vì 50%)',
+      'Sau 3 năm — điều kiện rút lui tiêu chuẩn (điều 7).',
+    ],
+
+    // Section 7: Exit from business
     exitTitle: 'Rút khỏi doanh nghiệp',
     exitConditions: [
       'Bên rút khỏi doanh nghiệp phải thông báo cho bên còn lại trước 2 tháng.',
       'Bên còn lại có quyền ưu tiên mua lại cổ phần.',
-      'Giá trị cổ phần — theo điều 9 (Định giá doanh nghiệp).',
+      'Giá trị cổ phần — theo điều 10 (Định giá doanh nghiệp).',
       'Nếu thông báo ít hơn 2 tháng:',
       '• Bên còn lại được quyền mua cổ phần với giá như 38% phần sở hữu (thay vì 50%).',
     ],
 
-    // Section 7: Responsibilities
+    // Section 8: Responsibilities
     responsibilitiesTitle: 'Phân chia trách nhiệm',
     armenResponsibilities: [
       'Đào tạo nhân viên',
@@ -201,17 +254,17 @@ const translations = {
       'Làm bảo hiểm y tế cho nhân viên',
     ],
 
-    // Section 8: Non-compete
+    // Section 9: Non-compete
     nonCompeteTitle: 'Cấm mở nhà hàng cá nhân',
     nonCompeteConditions: [
-      'Trong vòng 5 năm, mỗi nhà đầu tư bị cấm mở nhà hàng cá nhân mới để tập trung phát triển doanh nghiệp hiện tại.',
+      'Trong vòng 3 năm, mỗi nhà đầu tư bị cấm mở nhà hàng cá nhân mới để tập trung phát triển doanh nghiệp hiện tại.',
       'Ngoại lệ:',
       '• Nhà hàng không phải ẩm thực Kavkaz',
       '• Nhà hàng chung của các nhà đầu tư hiện tại (kể cả nếu có thêm nhà đầu tư mới)',
       '• Có thể vi phạm điều khoản với 250.000.000 ₫ cho nhà đầu tư còn lại',
     ],
 
-    // Section 9: Business valuation
+    // Section 10: Business valuation
     valuationTitle: 'Định giá doanh nghiệp',
     valuationFormula: 'Giá trị DN = (Lợi nhuận ròng năm × 2) + Vốn đầu tư chưa hoàn',
     valuationConditions: [
@@ -220,7 +273,7 @@ const translations = {
       'Giá trị cổ phần = Giá trị doanh nghiệp × % sở hữu.',
     ],
 
-    // Section 10: Business liquidation
+    // Section 11: Business liquidation
     liquidationTitle: 'Đóng cửa doanh nghiệp và bán tài sản',
     liquidationConditions: [
       'Đóng cửa doanh nghiệp cần sự đồng ý của tất cả nhà đầu tư.',
@@ -230,6 +283,15 @@ const translations = {
       '• Phần còn lại — chia theo tỷ lệ sở hữu (50/50)',
       'Nếu không đủ tiền — vốn đầu tư chưa hoàn sẽ mất.',
       'Thời hạn thanh lý — tối đa 3 tháng từ ngày quyết định.',
+    ],
+
+    // Section 12: Force majeure
+    forceMajeureTitle: 'Bất khả kháng',
+    forceMajeureConditions: [
+      'Bất khả kháng: chiến tranh, thiên tai, đại dịch, hành động của chính quyền, đóng cửa biên giới.',
+      'Khi có bất khả kháng, nghĩa vụ của các bên được tạm dừng.',
+      'Nếu không thể tiếp tục kinh doanh hơn 6 tháng — thanh lý theo điều 11.',
+      'Các bên không chịu trách nhiệm về tổn thất do bất khả kháng.',
     ],
 
     // Common
@@ -252,14 +314,17 @@ const DEFAULTS = {
   investment: 320000000,
   armenInvestment: 80000000,
   armenPrePaybackPercent: 10,
+  monthlyProfit: 50000000,
   prePaybackAgreed: false,
   deathConditionsAgreed: false,
   negativeProfitAgreed: false,
+  minTermAgreed: false,
   exitAgreed: false,
   responsibilitiesAgreed: false,
   nonCompeteAgreed: false,
   valuationAgreed: false,
   liquidationAgreed: false,
+  forceMajeureAgreed: false,
 }
 
 // Load saved values from localStorage
@@ -403,6 +468,9 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
   const [armenPrePaybackPercent, setArmenPrePaybackPercent] = useState(() =>
     getSavedTermsValue('armenPrePaybackPercent', DEFAULTS.armenPrePaybackPercent)
   )
+  const [monthlyProfit, setMonthlyProfit] = useState(() =>
+    getSavedTermsValue('monthlyProfit', DEFAULTS.monthlyProfit)
+  )
   const [prePaybackAgreed, setPrePaybackAgreed] = useState(() =>
     getSavedTermsValue('prePaybackAgreed', DEFAULTS.prePaybackAgreed)
   )
@@ -411,6 +479,9 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
   )
   const [negativeProfitAgreed, setNegativeProfitAgreed] = useState(() =>
     getSavedTermsValue('negativeProfitAgreed', DEFAULTS.negativeProfitAgreed)
+  )
+  const [minTermAgreed, setMinTermAgreed] = useState(() =>
+    getSavedTermsValue('minTermAgreed', DEFAULTS.minTermAgreed)
   )
   const [exitAgreed, setExitAgreed] = useState(() =>
     getSavedTermsValue('exitAgreed', DEFAULTS.exitAgreed)
@@ -426,6 +497,9 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
   )
   const [liquidationAgreed, setLiquidationAgreed] = useState(() =>
     getSavedTermsValue('liquidationAgreed', DEFAULTS.liquidationAgreed)
+  )
+  const [forceMajeureAgreed, setForceMajeureAgreed] = useState(() =>
+    getSavedTermsValue('forceMajeureAgreed', DEFAULTS.forceMajeureAgreed)
   )
 
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saved'>('idle')
@@ -445,14 +519,17 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
       investment,
       armenInvestment,
       armenPrePaybackPercent,
+      monthlyProfit,
       prePaybackAgreed,
       deathConditionsAgreed,
       negativeProfitAgreed,
+      minTermAgreed,
       exitAgreed,
       responsibilitiesAgreed,
       nonCompeteAgreed,
       valuationAgreed,
       liquidationAgreed,
+      forceMajeureAgreed,
     }
     localStorage.setItem('caucasus-terms', JSON.stringify(values))
     setSaveStatus('saved')
@@ -469,14 +546,17 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
     setInvestment(DEFAULTS.investment)
     setArmenInvestment(DEFAULTS.armenInvestment)
     setArmenPrePaybackPercent(DEFAULTS.armenPrePaybackPercent)
+    setMonthlyProfit(DEFAULTS.monthlyProfit)
     setPrePaybackAgreed(DEFAULTS.prePaybackAgreed)
     setDeathConditionsAgreed(DEFAULTS.deathConditionsAgreed)
     setNegativeProfitAgreed(DEFAULTS.negativeProfitAgreed)
+    setMinTermAgreed(DEFAULTS.minTermAgreed)
     setExitAgreed(DEFAULTS.exitAgreed)
     setResponsibilitiesAgreed(DEFAULTS.responsibilitiesAgreed)
     setNonCompeteAgreed(DEFAULTS.nonCompeteAgreed)
     setValuationAgreed(DEFAULTS.valuationAgreed)
     setLiquidationAgreed(DEFAULTS.liquidationAgreed)
+    setForceMajeureAgreed(DEFAULTS.forceMajeureAgreed)
   }
 
   return (
@@ -506,6 +586,26 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
       {/* Main content */}
       <main className="relative z-10 px-6 pb-20">
         <div className="max-w-4xl mx-auto space-y-6">
+
+          {/* Disclaimer */}
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/10 via-orange-500/10 to-red-500/10 border border-amber-500/20 p-6 animate-fade-in">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-amber-500/20 to-transparent rounded-bl-full" />
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-orange-500/20 to-transparent rounded-tr-full" />
+            <div className="relative flex gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <p className="text-gray-300 leading-relaxed">
+                  {t.disclaimer}
+                </p>
+              </div>
+            </div>
+          </div>
 
           {/* Section 1: Ownership */}
           <div className={`glass rounded-2xl p-6 animate-slide-up stagger-1 transition-all duration-300 ${ownershipAgreed ? 'border-green-500/50' : ''}`}>
@@ -658,6 +758,17 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
                   <div className="text-xs text-gray-500 mt-1">{t.investorShareLabel}</div>
                 </div>
               </div>
+
+              {/* Salary note */}
+              <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/30 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <p className="text-sm text-green-300">{t.salaryNote}</p>
+              </div>
+
               <div className="space-y-1 text-center text-sm text-gray-500">
                 <div>{t.vladNhung}: {investment.toLocaleString('ru-RU')} ₫</div>
                 <div>{t.armen}: {armenInvestment.toLocaleString('ru-RU')} ₫</div>
@@ -665,6 +776,77 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
                   {t.totalInvestment}: {(investment + armenInvestment).toLocaleString('ru-RU')} ₫
                 </div>
               </div>
+
+              {/* Simulation */}
+              <div className="mt-6 pt-6 border-t border-white/10">
+                <h3 className="text-sm font-medium text-blue-400 mb-4 flex items-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                  {t.simulationTitle}
+                </h3>
+                <NumberInput
+                  label={t.monthlyProfitLabel}
+                  value={monthlyProfit}
+                  onChange={setMonthlyProfit}
+                  min={0}
+                  max={500000000}
+                  step={5000000}
+                />
+                {monthlyProfit > 0 && (
+                  <div className="mt-4 space-y-3">
+                    {/* Months to payback */}
+                    {(() => {
+                      const totalInvestment = investment + armenInvestment
+                      const monthlyToInvestors = monthlyProfit * investorPrePaybackPercent / 100
+                      const monthsToPayback = monthlyToInvestors > 0 ? Math.ceil(totalInvestment / monthlyToInvestors) : 0
+                      const armenEarningsDuringPayback = monthsToPayback * monthlyProfit * armenPrePaybackPercent / 100
+                      const armenMonthlyAfterPayback = monthlyProfit * profitPercent / 100
+
+                      return (
+                        <>
+                          <div className="p-3 rounded-lg bg-blue-500/10 border border-blue-500/30">
+                            <div className="flex justify-between items-center">
+                              <span className="text-sm text-gray-400">{t.monthsToPayback}:</span>
+                              <span className="text-lg font-bold text-blue-400">
+                                {monthsToPayback} {t.months}
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="grid md:grid-cols-2 gap-3">
+                            {/* During payback */}
+                            <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/30">
+                              <div className="text-xs text-gray-500 mb-1">{t.duringPayback}</div>
+                              <div className="text-sm text-purple-400">
+                                {t.armenEarns}: <span className="font-bold">{armenPrePaybackPercent}%</span> {t.perMonth}
+                              </div>
+                              <div className="text-xs text-gray-500 mt-1">
+                                = {(monthlyProfit * armenPrePaybackPercent / 100).toLocaleString('ru-RU')} ₫/{t.months}
+                              </div>
+                              <div className="text-xs text-purple-300 mt-2">
+                                {t.total}: {armenEarningsDuringPayback.toLocaleString('ru-RU')} ₫
+                              </div>
+                            </div>
+
+                            {/* After payback */}
+                            <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/30">
+                              <div className="text-xs text-gray-500 mb-1">{t.afterPayback}</div>
+                              <div className="text-sm text-green-400">
+                                {t.armenWillEarn}: <span className="font-bold">{armenProfit}%</span> {t.perMonth}
+                              </div>
+                              <div className="text-xs text-gray-500 mt-1">
+                                = {armenMonthlyAfterPayback.toLocaleString('ru-RU')} ₫/{t.months}
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      )
+                    })()}
+                  </div>
+                )}
+              </div>
+
               <div className="mt-4 pt-4 border-t border-white/10 text-center text-sm text-gray-400 italic">
                 {t.newInvestmentsNote}
               </div>
@@ -747,11 +929,50 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
             </div>
           </div>
 
-          {/* Section 6: Exit from business */}
-          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-6 transition-all duration-300 ${exitAgreed ? 'border-green-500/50' : ''}`}>
+          {/* Section 6: Minimum partnership term */}
+          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-6 transition-all duration-300 ${minTermAgreed ? 'border-green-500/50' : ''}`}>
+            <h2 className="font-display text-xl text-white mb-6 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400 font-bold">
+                6
+              </span>
+              <span className="flex-1">{t.minTermTitle}</span>
+              <button
+                onClick={() => setMinTermAgreed(!minTermAgreed)}
+                className={`w-7 h-7 rounded border-2 flex items-center justify-center transition-all duration-200 ${
+                  minTermAgreed
+                    ? 'bg-green-500 border-green-500 text-white'
+                    : 'border-gray-500 hover:border-gray-400'
+                }`}
+              >
+                {minTermAgreed && (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </button>
+            </h2>
+            <div className="space-y-3 p-4 rounded-lg border bg-dark-800/30 border-white/10">
+              {t.minTermConditions.map((condition, index) => (
+                <p
+                  key={index}
+                  className={`text-sm ${
+                    index === 0 ? 'text-gray-300' :
+                    index === 1 ? 'text-gray-400 mt-4' :
+                    index === t.minTermConditions.length - 1 ? 'text-gray-300 mt-4' :
+                    'text-gray-400 pl-2'
+                  }`}
+                >
+                  {condition}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          {/* Section 7: Exit from business */}
+          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-7 transition-all duration-300 ${exitAgreed ? 'border-green-500/50' : ''}`}>
             <h2 className="font-display text-xl text-white mb-6 flex items-center gap-3">
               <span className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold">
-                6
+                7
               </span>
               <span className="flex-1">{t.exitTitle}</span>
               <button
@@ -771,18 +992,26 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
             </h2>
             <div className="space-y-3 p-4 rounded-lg border bg-dark-800/30 border-white/10">
               {t.exitConditions.map((condition, index) => (
-                <p key={index} className="text-sm text-gray-300">
+                <p
+                  key={index}
+                  className={`text-sm ${
+                    index === 0 ? 'text-gray-300' :
+                    index === 3 ? 'text-gray-400 mt-4' :
+                    index === 4 ? 'text-gray-400 pl-2' :
+                    'text-gray-300'
+                  }`}
+                >
                   {condition}
                 </p>
               ))}
             </div>
           </div>
 
-          {/* Section 7: Responsibilities */}
-          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-7 transition-all duration-300 ${responsibilitiesAgreed ? 'border-green-500/50' : ''}`}>
+          {/* Section 8: Responsibilities */}
+          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-8 transition-all duration-300 ${responsibilitiesAgreed ? 'border-green-500/50' : ''}`}>
             <h2 className="font-display text-xl text-white mb-6 flex items-center gap-3">
               <span className="w-8 h-8 rounded-lg bg-pink-500/20 flex items-center justify-center text-pink-400 font-bold">
-                7
+                8
               </span>
               <span className="flex-1">{t.responsibilitiesTitle}</span>
               <button
@@ -826,11 +1055,11 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
             </div>
           </div>
 
-          {/* Section 8: Non-compete */}
-          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-8 transition-all duration-300 ${nonCompeteAgreed ? 'border-green-500/50' : ''}`}>
+          {/* Section 9: Non-compete */}
+          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-9 transition-all duration-300 ${nonCompeteAgreed ? 'border-green-500/50' : ''}`}>
             <h2 className="font-display text-xl text-white mb-6 flex items-center gap-3">
               <span className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-400 font-bold">
-                8
+                9
               </span>
               <span className="flex-1">{t.nonCompeteTitle}</span>
               <button
@@ -864,11 +1093,11 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
             </div>
           </div>
 
-          {/* Section 9: Business valuation */}
-          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-9 transition-all duration-300 ${valuationAgreed ? 'border-green-500/50' : ''}`}>
+          {/* Section 10: Business valuation */}
+          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-10 transition-all duration-300 ${valuationAgreed ? 'border-green-500/50' : ''}`}>
             <h2 className="font-display text-xl text-white mb-6 flex items-center gap-3">
-              <span className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold">
-                9
+              <span className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm">
+                10
               </span>
               <span className="flex-1">{t.valuationTitle}</span>
               <button
@@ -899,11 +1128,11 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
             </div>
           </div>
 
-          {/* Section 10: Business liquidation */}
-          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-10 transition-all duration-300 ${liquidationAgreed ? 'border-green-500/50' : ''}`}>
+          {/* Section 11: Business liquidation */}
+          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-11 transition-all duration-300 ${liquidationAgreed ? 'border-green-500/50' : ''}`}>
             <h2 className="font-display text-xl text-white mb-6 flex items-center gap-3">
               <span className="w-8 h-8 rounded-lg bg-slate-500/20 flex items-center justify-center text-slate-400 font-bold text-sm">
-                10
+                11
               </span>
               <span className="flex-1">{t.liquidationTitle}</span>
               <button
@@ -930,6 +1159,45 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
                     index === 1 ? 'text-gray-400 mt-4' :
                     index === t.liquidationConditions.length - 1 ? 'text-gray-300 mt-4' :
                     'text-gray-400 pl-2'
+                  }`}
+                >
+                  {condition}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          {/* Section 12: Force majeure */}
+          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-12 transition-all duration-300 ${forceMajeureAgreed ? 'border-green-500/50' : ''}`}>
+            <h2 className="font-display text-xl text-white mb-6 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-lg bg-rose-500/20 flex items-center justify-center text-rose-400 font-bold text-sm">
+                12
+              </span>
+              <span className="flex-1">{t.forceMajeureTitle}</span>
+              <button
+                onClick={() => setForceMajeureAgreed(!forceMajeureAgreed)}
+                className={`w-7 h-7 rounded border-2 flex items-center justify-center transition-all duration-200 ${
+                  forceMajeureAgreed
+                    ? 'bg-green-500 border-green-500 text-white'
+                    : 'border-gray-500 hover:border-gray-400'
+                }`}
+              >
+                {forceMajeureAgreed && (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </button>
+            </h2>
+            <div className="space-y-3 p-4 rounded-lg border bg-dark-800/30 border-white/10">
+              {t.forceMajeureConditions.map((condition, index) => (
+                <p
+                  key={index}
+                  className={`text-sm ${
+                    index === 0 ? 'text-gray-300' :
+                    index === 1 ? 'text-gray-300' :
+                    index === 2 ? 'text-gray-300' :
+                    'text-gray-300'
                   }`}
                 >
                   {condition}
