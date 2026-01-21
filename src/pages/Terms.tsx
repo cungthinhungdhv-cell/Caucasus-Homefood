@@ -27,7 +27,7 @@ const translations = {
     prePaybackTitle: 'До окупаемости вложений',
     investmentLabel: 'Вложения Влад+Ньунг',
     armenInvestmentLabel: 'Вложения Армена',
-    armenShareLabel: 'Доля Армена до окупаемости',
+    armenShareLabel: 'Доля прибыли Армена до окупаемости инвестиций',
     investorShareLabel: 'Влад+Ньунг',
     prePaybackTooltip: 'До момента окупаемости вложений Армен получает меньшую долю, остальное идёт на ускоренную окупаемость инвесторов.',
     totalInvestment: 'Общие вложения',
@@ -51,6 +51,69 @@ const translations = {
       'Порядок покрытия убытка:',
       '• В первую очередь — вычитается из зарплаты инвесторов',
       '• Если зарплаты не хватает — из личного кармана',
+    ],
+
+    // Section 6: Exit from business
+    exitTitle: 'Выход из бизнеса',
+    exitConditions: [
+      'Сторона, которая выходит из бизнеса, обязана уведомить другую сторону за 2 месяца до выхода.',
+      'Вторая сторона имеет преимущественное право выкупа доли.',
+      'Оценка стоимости доли — согласно пункту 9 (Оценка стоимости бизнеса).',
+      'При уведомлении менее чем за 2 месяца:',
+      '• Другая сторона получает право выкупа доли по цене как 38% от доли владения (вместо 50%).',
+    ],
+
+    // Section 7: Responsibilities
+    responsibilitiesTitle: 'Распределение обязанностей',
+    armenResponsibilities: [
+      'Обучение персонала',
+      'Контроль бизнеса на месте',
+      'Приготовление заготовок',
+      'Приём заказов',
+      'Общение с клиентами',
+    ],
+    vladNhungResponsibilities: [
+      'IT-поддержка',
+      'Маркетинг',
+      'Бизнес-стратегия',
+      'Поиск сотрудников',
+      'Поиск мест для аренды',
+      'Работа с документами',
+      'Поиск партнёров и поставщиков',
+      'Работа с текущими партнёрами',
+      'Оплата сотрудникам',
+      'Оформление мед. страховки сотрудникам',
+    ],
+
+    // Section 8: Non-compete
+    nonCompeteTitle: 'Запрет на индивидуальные рестораны',
+    nonCompeteConditions: [
+      'В течение 5 лет каждому из инвесторов запрещается открывать новый индивидуальный ресторан, чтобы сосредоточиться на развитии текущего бизнеса.',
+      'Исключения:',
+      '• Ресторан не кавказской кухни',
+      '• Совместный ресторан тех же инвесторов (в том числе если будет новый добавочный инвестор)',
+      '• Пункт можно нарушить за 250.000.000 ₫ в пользу другого инвестора',
+    ],
+
+    // Section 9: Business valuation
+    valuationTitle: 'Оценка стоимости бизнеса',
+    valuationFormula: 'Стоимость бизнеса = (Годовая чистая прибыль × 2) + Неокупившиеся вложения',
+    valuationConditions: [
+      'Годовая чистая прибыль — средняя за последние 12 месяцев.',
+      'Неокупившиеся вложения — сумма инвестиций, которые ещё не вернулись инвестору.',
+      'Стоимость доли = Стоимость бизнеса × % владения.',
+    ],
+
+    // Section 10: Business liquidation
+    liquidationTitle: 'Закрытие бизнеса и продажа активов',
+    liquidationConditions: [
+      'Закрытие бизнеса требует согласия всех инвесторов.',
+      'Порядок распределения средств от продажи активов (оборудование, инвентарь и т.д.):',
+      '• Сначала — погашение всех долгов и обязательств',
+      '• Затем — погашение неокупившихся инвестиций каждого инвестора',
+      '• Остаток — делится пропорционально долям владения (50/50)',
+      'Если средств не хватает — неокупившиеся инвестиции сгорают.',
+      'Срок ликвидации — до 3 месяцев с момента решения.',
     ],
 
     // Common
@@ -80,14 +143,14 @@ const translations = {
     prePaybackTitle: 'Trước khi hoàn vốn',
     investmentLabel: 'Đầu tư của Vlad+Nhung',
     armenInvestmentLabel: 'Đầu tư của Armen',
-    armenShareLabel: 'Phần của Armen trước hoàn vốn',
+    armenShareLabel: 'Phần lợi nhuận của Armen trước khi hoàn vốn đầu tư',
     investorShareLabel: 'Vlad+Nhung',
     prePaybackTooltip: 'Trước khi hoàn vốn, Armen nhận phần nhỏ hơn, phần còn lại để hoàn vốn nhanh hơn cho nhà đầu tư.',
     totalInvestment: 'Tổng đầu tư',
     newInvestmentsNote: 'Các điều khoản này áp dụng cho các khoản đầu tư mới.',
 
     // Section 4: Death conditions
-    deathTitle: 'Trường hợp nhà đầu tư qua đời',
+    deathTitle: 'Trường hợp nhà đầu tư qua đời (Armen hoặc Vlad+Nhung)',
     deathAgreed: 'Điều khoản đã đồng ý',
     deathConditions: [
       'Người thân của nhà đầu tư qua đời có 3 tháng để đến Đà Nẵng và đảm nhận một nửa công việc quản lý.',
@@ -104,6 +167,69 @@ const translations = {
       'Thứ tự bù đắp thua lỗ:',
       '• Đầu tiên — trừ từ lương của nhà đầu tư',
       '• Nếu lương không đủ — từ tiền cá nhân',
+    ],
+
+    // Section 6: Exit from business
+    exitTitle: 'Rút khỏi doanh nghiệp',
+    exitConditions: [
+      'Bên rút khỏi doanh nghiệp phải thông báo cho bên còn lại trước 2 tháng.',
+      'Bên còn lại có quyền ưu tiên mua lại cổ phần.',
+      'Giá trị cổ phần — theo điều 9 (Định giá doanh nghiệp).',
+      'Nếu thông báo ít hơn 2 tháng:',
+      '• Bên còn lại được quyền mua cổ phần với giá như 38% phần sở hữu (thay vì 50%).',
+    ],
+
+    // Section 7: Responsibilities
+    responsibilitiesTitle: 'Phân chia trách nhiệm',
+    armenResponsibilities: [
+      'Đào tạo nhân viên',
+      'Giám sát doanh nghiệp tại chỗ',
+      'Chuẩn bị nguyên liệu',
+      'Nhận đơn hàng',
+      'Giao tiếp với khách hàng',
+    ],
+    vladNhungResponsibilities: [
+      'Hỗ trợ IT',
+      'Marketing',
+      'Chiến lược kinh doanh',
+      'Tìm kiếm nhân viên',
+      'Tìm kiếm địa điểm thuê',
+      'Làm việc với giấy tờ',
+      'Tìm kiếm đối tác và nhà cung cấp',
+      'Làm việc với đối tác hiện tại',
+      'Trả lương cho nhân viên',
+      'Làm bảo hiểm y tế cho nhân viên',
+    ],
+
+    // Section 8: Non-compete
+    nonCompeteTitle: 'Cấm mở nhà hàng cá nhân',
+    nonCompeteConditions: [
+      'Trong vòng 5 năm, mỗi nhà đầu tư bị cấm mở nhà hàng cá nhân mới để tập trung phát triển doanh nghiệp hiện tại.',
+      'Ngoại lệ:',
+      '• Nhà hàng không phải ẩm thực Kavkaz',
+      '• Nhà hàng chung của các nhà đầu tư hiện tại (kể cả nếu có thêm nhà đầu tư mới)',
+      '• Có thể vi phạm điều khoản với 250.000.000 ₫ cho nhà đầu tư còn lại',
+    ],
+
+    // Section 9: Business valuation
+    valuationTitle: 'Định giá doanh nghiệp',
+    valuationFormula: 'Giá trị DN = (Lợi nhuận ròng năm × 2) + Vốn đầu tư chưa hoàn',
+    valuationConditions: [
+      'Lợi nhuận ròng năm — trung bình 12 tháng gần nhất.',
+      'Vốn đầu tư chưa hoàn — số tiền đầu tư chưa được hoàn lại cho nhà đầu tư.',
+      'Giá trị cổ phần = Giá trị doanh nghiệp × % sở hữu.',
+    ],
+
+    // Section 10: Business liquidation
+    liquidationTitle: 'Đóng cửa doanh nghiệp và bán tài sản',
+    liquidationConditions: [
+      'Đóng cửa doanh nghiệp cần sự đồng ý của tất cả nhà đầu tư.',
+      'Thứ tự phân chia tiền từ bán tài sản (thiết bị, hàng tồn kho, v.v.):',
+      '• Đầu tiên — thanh toán tất cả nợ và nghĩa vụ',
+      '• Sau đó — hoàn trả vốn đầu tư chưa hoàn cho mỗi nhà đầu tư',
+      '• Phần còn lại — chia theo tỷ lệ sở hữu (50/50)',
+      'Nếu không đủ tiền — vốn đầu tư chưa hoàn sẽ mất.',
+      'Thời hạn thanh lý — tối đa 3 tháng từ ngày quyết định.',
     ],
 
     // Common
@@ -125,10 +251,15 @@ const DEFAULTS = {
   profitAgreed: false,
   investment: 320000000,
   armenInvestment: 80000000,
-  armenPrePaybackPercent: 40,
+  armenPrePaybackPercent: 10,
   prePaybackAgreed: false,
   deathConditionsAgreed: false,
   negativeProfitAgreed: false,
+  exitAgreed: false,
+  responsibilitiesAgreed: false,
+  nonCompeteAgreed: false,
+  valuationAgreed: false,
+  liquidationAgreed: false,
 }
 
 // Load saved values from localStorage
@@ -281,6 +412,21 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
   const [negativeProfitAgreed, setNegativeProfitAgreed] = useState(() =>
     getSavedTermsValue('negativeProfitAgreed', DEFAULTS.negativeProfitAgreed)
   )
+  const [exitAgreed, setExitAgreed] = useState(() =>
+    getSavedTermsValue('exitAgreed', DEFAULTS.exitAgreed)
+  )
+  const [responsibilitiesAgreed, setResponsibilitiesAgreed] = useState(() =>
+    getSavedTermsValue('responsibilitiesAgreed', DEFAULTS.responsibilitiesAgreed)
+  )
+  const [nonCompeteAgreed, setNonCompeteAgreed] = useState(() =>
+    getSavedTermsValue('nonCompeteAgreed', DEFAULTS.nonCompeteAgreed)
+  )
+  const [valuationAgreed, setValuationAgreed] = useState(() =>
+    getSavedTermsValue('valuationAgreed', DEFAULTS.valuationAgreed)
+  )
+  const [liquidationAgreed, setLiquidationAgreed] = useState(() =>
+    getSavedTermsValue('liquidationAgreed', DEFAULTS.liquidationAgreed)
+  )
 
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saved'>('idle')
 
@@ -302,6 +448,11 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
       prePaybackAgreed,
       deathConditionsAgreed,
       negativeProfitAgreed,
+      exitAgreed,
+      responsibilitiesAgreed,
+      nonCompeteAgreed,
+      valuationAgreed,
+      liquidationAgreed,
     }
     localStorage.setItem('caucasus-terms', JSON.stringify(values))
     setSaveStatus('saved')
@@ -321,6 +472,11 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
     setPrePaybackAgreed(DEFAULTS.prePaybackAgreed)
     setDeathConditionsAgreed(DEFAULTS.deathConditionsAgreed)
     setNegativeProfitAgreed(DEFAULTS.negativeProfitAgreed)
+    setExitAgreed(DEFAULTS.exitAgreed)
+    setResponsibilitiesAgreed(DEFAULTS.responsibilitiesAgreed)
+    setNonCompeteAgreed(DEFAULTS.nonCompeteAgreed)
+    setValuationAgreed(DEFAULTS.valuationAgreed)
+    setLiquidationAgreed(DEFAULTS.liquidationAgreed)
   }
 
   return (
@@ -582,6 +738,197 @@ export default function Terms({ lang, toggleLang }: TermsProps) {
                   className={`text-sm ${
                     index === 0 ? 'text-gray-300' :
                     index === 1 ? 'text-gray-400 mt-4' :
+                    'text-gray-400 pl-2'
+                  }`}
+                >
+                  {condition}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          {/* Section 6: Exit from business */}
+          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-6 transition-all duration-300 ${exitAgreed ? 'border-green-500/50' : ''}`}>
+            <h2 className="font-display text-xl text-white mb-6 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold">
+                6
+              </span>
+              <span className="flex-1">{t.exitTitle}</span>
+              <button
+                onClick={() => setExitAgreed(!exitAgreed)}
+                className={`w-7 h-7 rounded border-2 flex items-center justify-center transition-all duration-200 ${
+                  exitAgreed
+                    ? 'bg-green-500 border-green-500 text-white'
+                    : 'border-gray-500 hover:border-gray-400'
+                }`}
+              >
+                {exitAgreed && (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </button>
+            </h2>
+            <div className="space-y-3 p-4 rounded-lg border bg-dark-800/30 border-white/10">
+              {t.exitConditions.map((condition, index) => (
+                <p key={index} className="text-sm text-gray-300">
+                  {condition}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          {/* Section 7: Responsibilities */}
+          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-7 transition-all duration-300 ${responsibilitiesAgreed ? 'border-green-500/50' : ''}`}>
+            <h2 className="font-display text-xl text-white mb-6 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-lg bg-pink-500/20 flex items-center justify-center text-pink-400 font-bold">
+                7
+              </span>
+              <span className="flex-1">{t.responsibilitiesTitle}</span>
+              <button
+                onClick={() => setResponsibilitiesAgreed(!responsibilitiesAgreed)}
+                className={`w-7 h-7 rounded border-2 flex items-center justify-center transition-all duration-200 ${
+                  responsibilitiesAgreed
+                    ? 'bg-green-500 border-green-500 text-white'
+                    : 'border-gray-500 hover:border-gray-400'
+                }`}
+              >
+                {responsibilitiesAgreed && (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </button>
+            </h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 rounded-lg border bg-dark-800/30 border-white/10">
+                <h3 className="text-purple-400 font-medium mb-3">{t.armen}</h3>
+                <ul className="space-y-2">
+                  {t.armenResponsibilities.map((item, index) => (
+                    <li key={index} className="text-sm text-gray-300 flex items-start gap-2">
+                      <span className="text-purple-400 mt-0.5">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="p-4 rounded-lg border bg-dark-800/30 border-white/10">
+                <h3 className="text-gold-400 font-medium mb-3">{t.vladNhung}</h3>
+                <ul className="space-y-2">
+                  {t.vladNhungResponsibilities.map((item, index) => (
+                    <li key={index} className="text-sm text-gray-300 flex items-start gap-2">
+                      <span className="text-gold-400 mt-0.5">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 8: Non-compete */}
+          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-8 transition-all duration-300 ${nonCompeteAgreed ? 'border-green-500/50' : ''}`}>
+            <h2 className="font-display text-xl text-white mb-6 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-400 font-bold">
+                8
+              </span>
+              <span className="flex-1">{t.nonCompeteTitle}</span>
+              <button
+                onClick={() => setNonCompeteAgreed(!nonCompeteAgreed)}
+                className={`w-7 h-7 rounded border-2 flex items-center justify-center transition-all duration-200 ${
+                  nonCompeteAgreed
+                    ? 'bg-green-500 border-green-500 text-white'
+                    : 'border-gray-500 hover:border-gray-400'
+                }`}
+              >
+                {nonCompeteAgreed && (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </button>
+            </h2>
+            <div className="space-y-3 p-4 rounded-lg border bg-dark-800/30 border-white/10">
+              {t.nonCompeteConditions.map((condition, index) => (
+                <p
+                  key={index}
+                  className={`text-sm ${
+                    index === 0 ? 'text-gray-300' :
+                    index === 1 ? 'text-gray-400 mt-4' :
+                    'text-gray-400 pl-2'
+                  }`}
+                >
+                  {condition}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          {/* Section 9: Business valuation */}
+          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-9 transition-all duration-300 ${valuationAgreed ? 'border-green-500/50' : ''}`}>
+            <h2 className="font-display text-xl text-white mb-6 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold">
+                9
+              </span>
+              <span className="flex-1">{t.valuationTitle}</span>
+              <button
+                onClick={() => setValuationAgreed(!valuationAgreed)}
+                className={`w-7 h-7 rounded border-2 flex items-center justify-center transition-all duration-200 ${
+                  valuationAgreed
+                    ? 'bg-green-500 border-green-500 text-white'
+                    : 'border-gray-500 hover:border-gray-400'
+                }`}
+              >
+                {valuationAgreed && (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </button>
+            </h2>
+            <div className="space-y-4 p-4 rounded-lg border bg-dark-800/30 border-white/10">
+              <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
+                <p className="text-emerald-400 font-mono text-sm text-center">{t.valuationFormula}</p>
+              </div>
+              {t.valuationConditions.map((condition, index) => (
+                <p key={index} className="text-sm text-gray-300 flex items-start gap-2">
+                  <span className="text-emerald-400 mt-0.5">•</span>
+                  {condition}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          {/* Section 10: Business liquidation */}
+          <div className={`glass rounded-2xl p-6 animate-slide-up stagger-10 transition-all duration-300 ${liquidationAgreed ? 'border-green-500/50' : ''}`}>
+            <h2 className="font-display text-xl text-white mb-6 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-lg bg-slate-500/20 flex items-center justify-center text-slate-400 font-bold text-sm">
+                10
+              </span>
+              <span className="flex-1">{t.liquidationTitle}</span>
+              <button
+                onClick={() => setLiquidationAgreed(!liquidationAgreed)}
+                className={`w-7 h-7 rounded border-2 flex items-center justify-center transition-all duration-200 ${
+                  liquidationAgreed
+                    ? 'bg-green-500 border-green-500 text-white'
+                    : 'border-gray-500 hover:border-gray-400'
+                }`}
+              >
+                {liquidationAgreed && (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </button>
+            </h2>
+            <div className="space-y-3 p-4 rounded-lg border bg-dark-800/30 border-white/10">
+              {t.liquidationConditions.map((condition, index) => (
+                <p
+                  key={index}
+                  className={`text-sm ${
+                    index === 0 ? 'text-gray-300' :
+                    index === 1 ? 'text-gray-400 mt-4' :
+                    index === t.liquidationConditions.length - 1 ? 'text-gray-300 mt-4' :
                     'text-gray-400 pl-2'
                   }`}
                 >

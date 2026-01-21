@@ -82,7 +82,8 @@ const translations = {
     grossMarginTooltip: 'Процент прибыли от выручки ДО вычета налогов. Показывает эффективность операционной деятельности.',
     netMargin: 'Чистая маржа',
     netMarginTooltip: 'Процент прибыли от выручки ПОСЛЕ всех налогов. Показывает реальную доходность бизнеса.',
-    investorShare: 'Доля инвестора (50%)',
+    investorShare: 'Доля инвестора',
+    investorProfitShare: 'Доля прибыли инвесторов',
 
     // ROI
     roiTitle: 'Окупаемость инвестиций',
@@ -180,7 +181,8 @@ const translations = {
     grossMarginTooltip: 'Phần trăm lợi nhuận từ doanh thu TRƯỚC thuế. Cho thấy hiệu quả hoạt động.',
     netMargin: 'Biên lợi nhuận ròng',
     netMarginTooltip: 'Phần trăm lợi nhuận từ doanh thu SAU tất cả thuế. Cho thấy lợi nhuận thực tế.',
-    investorShare: 'Phần NĐT (50%)',
+    investorShare: 'Phần NĐT',
+    investorProfitShare: 'Phần lợi nhuận NĐT',
 
     // ROI
     roiTitle: 'Hoàn vốn đầu tư',
@@ -252,6 +254,7 @@ const DEFAULTS = {
   ingredientOptimization: 20,
   ingredientPercent: 50,
   monthlyGrowth: 15,
+  investorProfitShare: 50, // % прибыли инвесторов
 }
 
 // Animated counter component
@@ -410,6 +413,7 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
   const [ingredientOptimization, setIngredientOptimization] = useState(() => getSavedValue('ingredientOptimization', DEFAULTS.ingredientOptimization))
   const [ingredientPercent, setIngredientPercent] = useState(() => getSavedValue('ingredientPercent', DEFAULTS.ingredientPercent))
   const [monthlyGrowth, setMonthlyGrowth] = useState(() => getSavedValue('monthlyGrowth', DEFAULTS.monthlyGrowth))
+  const [investorProfitShare, setInvestorProfitShare] = useState(() => getSavedValue('investorProfitShare', DEFAULTS.investorProfitShare))
 
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saved'>('idle')
 
@@ -444,7 +448,7 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
       accountantSalary, armenSalary, investorsSalary,
       rent, marketing, utilities, claudeAi, contingency,
       vat, incomeTax,
-      dailyRevenue, grabBonus, nhungChannelBonus, priceIncrease, ingredientOptimization, ingredientPercent, monthlyGrowth,
+      dailyRevenue, grabBonus, nhungChannelBonus, priceIncrease, ingredientOptimization, ingredientPercent, monthlyGrowth, investorProfitShare,
     }
     localStorage.setItem('caucasus-calculator', JSON.stringify(values))
     setSaveStatus('saved')
@@ -475,6 +479,7 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
     setIngredientOptimization(DEFAULTS.ingredientOptimization)
     setIngredientPercent(DEFAULTS.ingredientPercent)
     setMonthlyGrowth(DEFAULTS.monthlyGrowth)
+    setInvestorProfitShare(DEFAULTS.investorProfitShare)
   }
 
   // Calculate all derived values
@@ -514,8 +519,8 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
     // Net profit
     const netProfit = grossProfit - totalTaxes
 
-    // Investor share (50%)
-    const investorShare = netProfit / 2
+    // Investor share
+    const investorShare = netProfit * (investorProfitShare / 100)
 
     // Margins
     const grossMargin = adjustedRevenue > 0 ? (grossProfit / adjustedRevenue) * 100 : 0
@@ -542,7 +547,7 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
       const monthVat = monthRevenue * (vat / 100)
       const monthIncomeTax = Math.max(0, monthGrossProfit * (incomeTax / 100))
       const monthNetProfit = monthGrossProfit - monthVat - monthIncomeTax
-      const monthInvestorShare = monthNetProfit / 2
+      const monthInvestorShare = monthNetProfit * (investorProfitShare / 100)
 
       cumulativeProfit += monthInvestorShare
 
@@ -580,7 +585,7 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
     accountantSalary, armenSalary, investorsSalary,
     rent, marketing, utilities, claudeAi, contingency,
     vat, incomeTax,
-    dailyRevenue, grabBonus, nhungChannelBonus, priceIncrease, ingredientOptimization, ingredientPercent, monthlyGrowth,
+    dailyRevenue, grabBonus, nhungChannelBonus, priceIncrease, ingredientOptimization, ingredientPercent, monthlyGrowth, investorProfitShare,
   ])
 
   // Find payback month
@@ -882,6 +887,14 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
                     max={30}
                     unit="%"
                   />
+                  <SliderInput
+                    label={t.investorProfitShare}
+                    value={investorProfitShare}
+                    onChange={setInvestorProfitShare}
+                    min={0}
+                    max={100}
+                    unit="%"
+                  />
                 </div>
               </div>
             </div>
@@ -1012,7 +1025,7 @@ export default function Calculator({ lang, toggleLang }: CalculatorProps) {
                   </div>
 
                   <div className="flex justify-between items-center pt-3 border-t border-gold-500/30">
-                    <span className="font-display text-white font-bold">{t.investorShare}</span>
+                    <span className="font-display text-white font-bold">{t.investorShare} ({investorProfitShare}%)</span>
                     <span className={`font-mono text-xl font-bold ${calculations.investorShare >= 0 ? 'text-gold-400' : 'text-red-400'}`}>
                       <AnimatedNumber value={calculations.investorShare} suffix=" ₫" />
                     </span>
